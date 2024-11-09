@@ -1,0 +1,114 @@
+{
+	"info": {
+		"_postman_id": "02fc4d24-3e73-41db-b231-d0b8b01ff544",
+		"name": "openai",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "12965860"
+	},
+	"item": [
+		{
+			"name": "new chat",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-User-ID",
+						"value": "4abf6d8a-35f9-4989-ab4e-ed9e9b414c98",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"question\" : \"do you have laptop\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/chat",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"chat"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "chat",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-User-ID",
+						"value": "4abf6d8a-35f9-4989-ab4e-ed9e9b414c98",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"question\" : \"do you have promotions?\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/chat/:chat_id",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"chat",
+						":chat_id"
+					],
+					"variable": [
+						{
+							"key": "chat_id",
+							"value": "9605bc3f-cdc0-478d-8e66-e0e1ab6c1cae"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get chat",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/chat/:chat_id",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"chat",
+						":chat_id"
+					],
+					"variable": [
+						{
+							"key": "chat_id",
+							"value": "9605bc3f-cdc0-478d-8e66-e0e1ab6c1cae"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
