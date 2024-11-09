@@ -1,0 +1,14 @@
+system:
+You are a helpful assistant.
+
+{{.MetaPrompt}}
+
+{{- range .ChatHistory }}
+user:
+{{.Question}}
+assistant:
+{{.Answer}}
+{{- end }}
+
+user:
+{{.Question}}

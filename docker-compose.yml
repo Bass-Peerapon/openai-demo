@@ -1,0 +1,35 @@
+version: "3"
+services:
+  openai-service:
+    container_name: openai-service
+    restart: always
+    build:
+      context: ./
+      dockerfile: ./Dockerfile
+    env_file: .env
+    networks:
+      - default
+    ports:
+      - "3000:3000"
+    depends_on:
+      - openai-postgres
+
+  openai-postgres:
+    container_name: openai-postgres
+    image: ankane/pgvector
+    restart: always
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=admin
+      - POSTGRES_MULTIPLE_DATABASES="chat", "customer", "product"
+    networks:
+      - default
+    volumes:
+      - ./multiple-databases.sh:/docker-entrypoint-initdb.d/multiple-databases.sh
+
+networks:
+  default:
+    external:
+      name: openai
